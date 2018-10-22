@@ -1,0 +1,43 @@
+import com.android.build.gradle.api.BaseVariant
+
+buildscript {
+  dependencies {
+    repositories {
+      google()
+      jcenter()
+      mavenLocal()
+    }
+
+    classpath 'org.solovyev.android.aspecta:plugin:1.0.0'
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'org.solovyev.android.aspecta'
+
+android {
+  compileSdkVersion 27
+  defaultConfig {
+    applicationId "org.solovyev.android.threadguard.app"
+    minSdkVersion 21
+    targetSdkVersion 27
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation project(":lib")
+  implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'org.aspectj:aspectjrt:1.9.1'
+
+  testImplementation 'junit:junit:4.12'
+  testImplementation 'org.mockito:mockito-core:2.7.1'
+  testImplementation "org.robolectric:robolectric:3.8"
+}
