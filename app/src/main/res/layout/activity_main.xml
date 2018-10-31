@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/call_main_on_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call main thread method on the main thread" />
+
+    <Button
+        android:id="@+id/call_main_on_worker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call main thread method on a worker thread" />
+
+    <Button
+        android:id="@+id/call_worker_on_worker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call worker thread method on a worker thread" />
+
+    <Button
+        android:id="@+id/call_worker_on_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call worker thread method on a main thread" />
+
+</LinearLayout>
