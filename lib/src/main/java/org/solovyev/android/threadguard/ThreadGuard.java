@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+@SuppressWarnings("unused")
 @Aspect
 public final class ThreadGuard {
 
