@@ -11,6 +11,8 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'org.solovyev.android.aspecta'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'nexus'
 
 android {
   compileSdkVersion 28
@@ -28,10 +30,42 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+}
 
+sourceSets {
+  main.java.srcDirs = ['src/main/java']
 }
 
 dependencies {
   implementation 'com.android.support:support-annotations:28.0.0'
   implementation 'org.aspectj:aspectjrt:1.9.1'
+}
+
+modifyPom {
+  project {
+    name "Thread Guard"
+    description "Android library for safer multi-threading"
+    url "https://github.com/serso/thread-guard"
+
+    scm {
+      url "https://github.com/serso/thread-guard"
+      connection "https://github.com/serso/thread-guard.git"
+      developerConnection "https://github.com/serso/thread-guard.git"
+    }
+
+    licenses {
+      license {
+        name "The Apache Software License, Version 2.0"
+        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        distribution "repo"
+      }
+    }
+
+    developers {
+      developer {
+        id "serso"
+        name "Sergey Solovyev"
+      }
+    }
+  }
 }
