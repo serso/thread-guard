@@ -14,24 +14,23 @@
 
 package org.solovyev.android.threadguard.app;
 
-import static junit.framework.Assert.assertTrue;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
 import android.support.annotation.NonNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
+import org.solovyev.android.threadguard.WrongThreadException;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+import static junit.framework.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricTestRunner.class)
 public class ThreadGuardTest {
@@ -68,10 +67,10 @@ public class ThreadGuardTest {
             }
         });
         latch.await(1000L, TimeUnit.MILLISECONDS);
-        verify(callback).onError(any(AssertionError.class));
+        verify(callback).onError(any(WrongThreadException.class));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test(expected = WrongThreadException.class)
     public void forbidMainThreadInWorkerThreadMethod() {
         mActivity.toBeCalledOnWorkerThread();
     }
