@@ -17,7 +17,7 @@ allprojects {
   }
 
   group = 'org.solovyev.android.threadguard'
-  version = '1.0.0'
+  version = '1.0.1'
 }
 
 task clean(type: Delete) {
