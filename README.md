@@ -8,7 +8,7 @@ Set up AspectA as described here: https://github.com/serso/aspecta.
 Import Thread Guard library to your project:
 ```groovy
 dependencies {
-  implementation 'org.solovyev.android.threadguard:lib:1.0.1'
+  implementation 'org.solovyev.android.threadguard:lib:1.0.2'
 }
 ```
 
